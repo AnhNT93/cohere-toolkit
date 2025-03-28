@@ -411,13 +411,13 @@ export const useChat = (config?: { onSend?: (msg: string) => void }) => {
 
             const finalText = isRAGOn
               ? replaceTextWithCitations(
-                  // TODO(@wujessica): temporarily use the text generated from the stream when MAX_TOKENS
-                  // because the final response doesn't give us the full text yet. Note - this means that
-                  // citations will only appear for the first 'block' of text generated.
-                  transformedText,
-                  citations,
-                  generationId
-                )
+                // TODO(@wujessica): temporarily use the text generated from the stream when MAX_TOKENS
+                // because the final response doesn't give us the full text yet. Note - this means that
+                // citations will only appear for the first 'block' of text generated.
+                transformedText,
+                citations,
+                generationId
+              )
               : botResponse;
 
             const finalMessage: FulfilledMessage = {
@@ -443,7 +443,7 @@ export const useChat = (config?: { onSend?: (msg: string) => void }) => {
           }
         }
       },
-      onHeaders: () => {},
+      onHeaders: () => { },
       onFinish: () => {
         setIsStreaming(false);
       },
@@ -528,7 +528,7 @@ export const useChat = (config?: { onSend?: (msg: string) => void }) => {
 
     const request = getChatRequest(message, overrides);
     const headers = {
-      'Deployment-Name': deployment ?? '',
+      'Deployment-Name': 'Cohere Platform',
       'Deployment-Config': deploymentConfig ?? '',
     };
     let newMessages: ChatMessage[] = currentMessages;
@@ -583,7 +583,7 @@ export const useChat = (config?: { onSend?: (msg: string) => void }) => {
     const request = getChatRequest('');
 
     const headers = {
-      'Deployment-Name': deployment ?? '',
+      'Deployment-Name': 'Cohere Platform',
       'Deployment-Config': deploymentConfig ?? '',
     };
 

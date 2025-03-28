@@ -546,7 +546,7 @@ export const useChat = (config?: { onSend?: (msg: string) => void }) => {
 
     const request = getChatRequest(message, overrides);
     const headers = {
-      'Deployment-Name': deployment ?? '',
+      'Deployment-Name': 'Cohere Platform',
       'Deployment-Config': deploymentConfig ?? '',
     };
     let newMessages: ChatMessage[] = currentMessages;

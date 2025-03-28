@@ -24,10 +24,10 @@ class CohereDeployment(BaseDeployment):
     def __init__(self, **kwargs: Any):
         super().__init__(**kwargs)
 
-        api_key = get_deployment_config_var(
-            COHERE_API_KEY_ENV_VAR, CohereDeployment.api_key, **kwargs
-        )
-        self.client = cohere.Client(api_key, client_name=self.client_name)
+        # api_key = get_deployment_config_var(
+        #     COHERE_API_KEY_ENV_VAR, CohereDeployment.api_key, **kwargs
+        # )
+        self.client = cohere.Client(CohereDeployment.api_key, client_name=self.client_name)
 
     @staticmethod
     def name() -> str:
